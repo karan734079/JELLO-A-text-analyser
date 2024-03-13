@@ -22,11 +22,18 @@ const TextForm = (props) => {
 
   const handleClearText = () => {
     setText("");
+    props.showAlert("Text Cleared!","success");
   };
 
   const handleOnchange = (event) => {
     setText(event.target.value);
   };
+
+  const handleExtraSpaces=()=>{
+    let newText=text.split(/[ ]+/);
+    setText(newText.join(""));
+    props.showAlert("Extra Spaces Cleared!","success");
+  }
 
   const startListening = useCallback(() => {
     SpeechRecognition.startListening({ continuous: true });
@@ -76,7 +83,7 @@ const TextForm = (props) => {
         />
       </div>
       <button
-        className="btn btn-primary text-white mx-1"
+        className="btn btn-primary text-white "
         type="button"
         onClick={handleCliclUppercase}
       >
@@ -95,6 +102,13 @@ const TextForm = (props) => {
         onClick={handleClearText}
       >
         Clear Text
+      </button>
+      <button
+        className="btn btn-primary text-white mx-1"
+        type="button"
+        onClick={handleExtraSpaces}
+      >
+        Clear Extra Spaces
       </button>
       <div className="container my-3">
         <h2>Your Text Summary</h2>
