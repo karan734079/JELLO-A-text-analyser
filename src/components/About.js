@@ -26,7 +26,7 @@ function About(props) {
         }
     }
     return (
-        <div className="container" style={myStyle}>
+        <div className="container" style={myStyle} >
             <h3 className="my-3">{props.title}</h3>
             <div className="accordion"  style={myStyle} id="accordionPanelsStayOpenExample">
                 <div className="accordion-item">
