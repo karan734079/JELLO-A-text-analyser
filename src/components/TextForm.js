@@ -11,11 +11,13 @@ const TextForm = (props) => {
   const handleCliclUppercase = () => {
     let newText = text.toUpperCase();
     setText(newText);
+    props.showAlert("Converted to UPPERCASE!","success");
   };
 
   const handleClicklowerecase = () => {
     let newText = text.toLowerCase();
     setText(newText);
+    props.showAlert("Converted to lowercase!","success");
   };
 
   const handleClearText = () => {
